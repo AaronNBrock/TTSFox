@@ -29,7 +29,7 @@ let ttsfox = {
   initCount: 0,
   prefsMapping: {
     pitch: [0, 0.5, 1.0, 1.5, 2.0],
-    rate: [0.1, 0.125, 0.25, 0.5, 1.0, 2.0, 4.0, 8.0, 10.0],
+    rate: [0.1, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0],
     volume: [0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
     //voice: [] base on system
   },
@@ -287,18 +287,19 @@ const setLabelText = (name, value) => {
   let elem = document.getElementById(name + '_value');
   let prefsMapping = {
     pitch: [0, 0.5, 1.0, 1.5, 2.0],
+    rate: [0.1, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0],
     volume: ['1%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%']
   }
   while(elem.firstChild) {
     elem.removeChild(elem.firstChild);
   }
   let textNode;
-  if(name == 'rate') {
-    textNode = document.createTextNode(browser.i18n.getMessage('rateS' + value));
-  }
-  else {
-    textNode = document.createTextNode(prefsMapping[name][value]);
-  }
+  //if(name == 'rate') {
+  //  textNode = document.createTextNode(browser.i18n.getMessage('rateS' + value));
+  //}
+  //else {
+  textNode = document.createTextNode(prefsMapping[name][value]);
+  //}
   elem.appendChild(textNode);
 };
 
